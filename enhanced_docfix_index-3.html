@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DocFix Seminar Index</title>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .nav-tab {
+            flex: 1;
+            padding: 1rem 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #666;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-tab.active {
+            color: #667eea;
+            background: white;
+        }
+
+        .nav-tab:hover {
+            color: #667eea;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Search Tab Styles */
+        .search-section {
+            padding: 2rem;
+        }
+
+        .search-container {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            font-size: 1.1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            outline: none;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .search-input:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .search-button {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .search-button:hover {
+            transform: translateY(-50%) scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .quick-topics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .topic-button {
+            background: white;
+            border: 2px solid #f0f0f0;
+            border-radius: 25px;
+            padding: 0.8rem 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-weight: 500;
+            color: #2c3e50;
+            font-size: 0.9rem;
+        }
+
+        .topic-button:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Weekly Browser Styles */
+        .weekly-browser {
+            padding: 2rem;
+        }
+
+        .weekly-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .week-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 1px solid #f0f0f0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .week-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .week-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .week-date {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .week-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .week-topics {
+            margin-bottom: 1rem;
+        }
+
+        .topic-tag {
+            display: inline-block;
+            background: #f8f9fa;
+            color: #495057;
+            padding: 0.3rem 0.7rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin: 0.2rem 0.3rem 0.2rem 0;
+            border: 1px solid #e9ecef;
+        }
+
+        .week-highlights {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+
+        .quick-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .quick-link {
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .quick-link:hover {
+            background: #5a6fd8;
+            transform: scale(1.05);
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Results Section Styles */
+        .results-section {
+            padding: 2rem;
+            display: none;
+        }
+
+        .results-header {
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .results-count {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .clear-results {
+            background: none;
+            border: 1px solid #ddd;
+            color: #666;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .clear-results:hover {
+            background: #f5f5f5;
+        }
+
+        .index-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #f0f0f0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .index-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .index-title {
+            color: #2c3e50;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .index-summary {
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .index-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .seminar-link {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 0.8rem;
+            border: 1px solid #e9ecef;
+        }
+
+        .seminar-title {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .timestamp-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timestamp-link {
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            padding: 0.3rem 0.7rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .timestamp-link:hover {
+            background: #5a6fd8;
+            transform: scale(1.05);
+            text-decoration: none;
+            color: white;
+        }
+
+        .search-terms {
+            background: #f8f9fa;
+            padding: 0.5rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .search-terms strong {
+            color: #2c3e50;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+
+        .no-results h3 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .example-searches {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .example-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .example-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.5rem;
+        }
+
+        .example-search {
+            color: #667eea;
+            cursor: pointer;
+            padding: 0.4rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .example-search:hover {
+            background: white;
+            transform: translateX(3px);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .nav-tabs {
+                flex-direction: column;
+            }
+
+            .weekly-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-topics {
+                grid-template-columns: 1fr;
+            }
+
+            .results-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .timestamp-links {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<h1>📖 DocFix Seminar Index</h1>
+<p>Your complete reference to weekly seminars and key concepts</p>
+</div>
+
+<div class="nav-tabs">
+<button class="nav-tab active" onclick="switchTab('search')">🔍 Search Topics</button>
+<button class="nav-tab" onclick="switchTab('weekly')">📅 Weekly Seminars</button>
+</div>
+
+<!-- Search Tab Content -->
+<div id="searchTab" class="tab-content active">
+<div class="search-section">
+<div class="search-container">
+<input class="search-input" placeholder="Search for topics like 'Rik's documentary', 'documentary paradox', 'theme development'..." type="text"/>
+<button class="search-button" onclick="performSearch()">Search</button>
+</div>
+<div class="quick-topics">
+<div class="topic-button" onclick="searchQuestion('documentary paradox')">Documentary Paradox</div>
+<div class="topic-button" onclick="searchQuestion('Rik documentary')">Rik's Mama's Pride</div>
+<div class="topic-button" onclick="searchQuestion('four story types')">Four Story Types</div>
+<div class="topic-button" onclick="searchQuestion('finding theme')">Finding Theme</div>
+<div class="topic-button" onclick="searchQuestion('Matt documentary')">Matt's Project</div>
+<div class="topic-button" onclick="searchQuestion('story weaving')">Storytelling vs Weaving</div>
+<div class="topic-button" onclick="searchQuestion('treatment writing')">Treatment Process</div>
+<div class="topic-button" onclick="searchQuestion('organization')">Project Organization</div>
+</div>
+<div class="example-searches">
+<div class="example-title">💡 Try searching for:</div>
+<div class="example-list">
+<div class="example-search" onclick="searchQuestion('Rik music documentary')">Rik's music documentary</div>
+<div class="example-search" onclick="searchQuestion('Mama Pride plane crash')">Mama's Pride plane crash</div>
+<div class="example-search" onclick="searchQuestion('Matt Catholic film')">Matt's Catholic film</div>
+<div class="example-search" onclick="searchQuestion('Rolling Stones ending')">Rolling Stones ending</div>
+<div class="example-search" onclick="searchQuestion('unrealized potential')">Unrealized potential</div>
+<div class="example-search" onclick="searchQuestion('interview authority')">Interview authority</div>
+<div class="example-search" onclick="searchQuestion('cultural identity')">Cultural identity</div>
+<div class="example-search" onclick="searchQuestion('thematic argument')">Thematic argument</div>
+</div>
+</div>
+</div>
+
+<div class="results-section" id="resultsSection">
+<div class="results-header">
+<div class="results-count" id="resultsCount"></div>
+<button class="clear-results" onclick="clearResults()">New Search</button>
+</div>
+<div id="resultsContainer">
+<!-- Search results will be populated here -->
+</div>
+</div>
+</div>
+
+<!-- Weekly Browser Tab Content -->
+<div id="weeklyTab" class="tab-content">
+<div class="weekly-browser">
+<div class="weekly-grid">
+
+<!-- July 24, 2025 Seminar -->
+<div class="week-card">
+<div class="week-header">
+<div class="week-date">July 24, 2025</div>
+<div class="week-badge">Foundation</div>
+</div>
+<div class="week-topics">
+<span class="topic-tag">Documentary Paradox</span>
+<span class="topic-tag">Four Story Types</span>
+<span class="topic-tag">Theme Development</span>
+<span class="topic-tag">Student Projects</span>
+</div>
+<div class="week-highlights">
+Core DocFix concepts: How to be dramatic and truthful. Rik's Mama's Pride project introduction, Matt's Catholic persecution documentary, and the essential difference between storytelling and story weaving.
+</div>
+<div class="quick-links">
+<a href="https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=425" target="_blank" class="quick-link">Documentary Paradox</a>
+<a href="https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=580" target="_blank" class="quick-link">Four Story Types</a>
+<a href="https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=1488" target="_blank" class="quick-link">Theme Process</a>
+<a href="https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=638" target="_blank" class="quick-link">Rik's Project</a>
+</div>
+</div>
+
+<!-- July 17, 2025 Seminar -->
+<div class="week-card">
+<div class="week-header">
+<div class="week-date">July 17, 2025</div>
+<div class="week-badge">Advanced</div>
+</div>
+<div class="week-topics">
+<span class="topic-tag">Thematic Arguments</span>
+<span class="topic-tag">Cultural Identity</span>
+<span class="topic-tag">Authorship</span>
+<span class="topic-tag">Personal Connection</span>
+</div>
+<div class="week-highlights">
+Deep dive into how thematic arguments shape documentaries. Matt's Irish faith/history exploration, Sean's rave culture story, Serena's Larry King success vs. peace theme. Focus on connecting personal motivations to story structure.
+</div>
+<div class="quick-links">
+<a href="https://fathom.video/share/DjsSFmD7XuGXsWyZXscPLhHzr391Cnky?timestamp=3120.9999" target="_blank" class="quick-link">Cultural Identity</a>
+<a href="https://fathom.video/share/DjsSFmD7XuGXsWyZXscPLhHzr391Cnky?timestamp=3182.9999" target="_blank" class="quick-link">Personal Connection</a>
+<a href="https://fathom.video/share/DjsSFmD7XuGXsWyZXscPLhHzr391Cnky?timestamp=6950.9999" target="_blank" class="quick-link">Daniel Rohr Connect</a>
+<a href="https://fathom.video/share/DjsSFmD7XuGXsWyZXscPLhHzr391Cnky?timestamp=7240.9999" target="_blank" class="quick-link">Liam Masterclass</a>
+</div>
+</div>
+
+<!-- Placeholder for Future Seminars -->
+<div class="week-card" style="opacity: 0.6; border: 2px dashed #ddd;">
+<div class="week-header">
+<div class="week-date">July 31, 2025</div>
+<div class="week-badge">Coming Soon</div>
+</div>
+<div class="week-topics">
+<span class="topic-tag">Act Structure</span>
+<span class="topic-tag">Story Development</span>
+</div>
+<div class="week-highlights">
+This week's seminar will be indexed here after it's completed. Topics will include practical approaches to documentary act structure and advanced story development techniques.
+</div>
+<div class="quick-links">
+<span style="color: #999; font-size: 0.9rem;">Links will be available after seminar</span>
+</div>
+</div>
+
+<div class="week-card" style="opacity: 0.6; border: 2px dashed #ddd;">
+<div class="week-header">
+<div class="week-date">August 7, 2025</div>
+<div class="week-badge">Upcoming</div>
+</div>
+<div class="week-topics">
+<span class="topic-tag">Student Projects</span>
+<span class="topic-tag">Workshop Session</span>
+</div>
+<div class="week-highlights">
+Weekly seminar focusing on student project development and hands-on workshop elements. Content will be indexed here following the session.
+</div>
+<div class="quick-links">
+<span style="color: #999; font-size: 0.9rem;">Links will be available after seminar</span>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+</div>
+
+<script>
+        // Tab switching functionality
+        function switchTab(tabName) {
+            // Update nav tabs
+            document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelector(`[onclick="switchTab('${tabName}')"]`).classList.add('active');
+            
+            // Update content
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            document.getElementById(tabName + 'Tab').classList.add('active');
+            
+            // Clear search results when switching away from search tab
+            if (tabName !== 'search') {
+                clearResults();
+            }
+        }
+
+        // Focused index database - enhanced with July 17 content
+        const SEMINAR_INDEX = {
+            'rik_mamas_pride': {
+                title: "Rik's Mama's Pride Documentary",
+                summary: "Rik is documenting Mama's Pride, a supremely talented 1970s Southern rock band from St. Louis that had three major near-misses at stardom. Key story: Lynyrd Skynyrd plane crash changed everything, but maybe saved their lives.",
+                seminars: [
+                    {
+                        title: "July 24 Seminar - Project Introduction",
+                        timestamps: [
+                            { time: "1:20", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=80", label: "Project intro" },
+                            { time: "10:38", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=638", label: "Band's story" },
+                            { time: "14:12", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=852", label: "Plane crash details" }
+                        ],
+                        searchTerms: "Mama's Pride, Southern rock, plane crash, Leonard Skinner"
+                    }
+                ],
+                keywords: ["rik", "rick", "mama's pride", "mamas pride", "southern rock", "music documentary", "band"]
+            },
+
+            'mamas_pride_themes': {
+                title: "Mama's Pride - Theme Development",
+                summary: "Rick explores themes of unrealized potential, talent vs. recognition, and the 'Rolling Stones ending' - sometimes not getting what you want leads to what you need.",
+                seminars: [
+                    {
+                        title: "July 24 Seminar - Theme Discussion", 
+                        timestamps: [
+                            { time: "58:49", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=3529", label: "Rick's values" },
+                            { time: "1:02:54", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=3774", label: "Universal appeal" },
+                            { time: "1:16:34", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=4594", label: "Rolling Stones theme" }
+                        ],
+                        searchTerms: "unrealized potential, humility, talent recognition, Rolling Stones"
+                    }
+                ],
+                keywords: ["themes", "unrealized potential", "talent", "recognition", "rolling stones ending", "humility"]
+            },
+
+            'matt_catholic': {
+                title: "Matt's Catholic Persecution Documentary",
+                summary: "Matt's historical documentary about English attempts to suppress Catholicism in Ireland by attacking priests. Deep personal connection - visited location as child with his sister.",
+                seminars: [
+                    {
+                        title: "July 24 Seminar - Matt's Project",
+                        timestamps: [
+                            { time: "46:51", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=2811", label: "Personal meaning" },
+                            { time: "50:23", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=3023", label: "Modern connections" },
+                            { time: "51:44", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=3104", label: "Rathlin Island priest" }
+                        ],
+                        searchTerms: "Catholic persecution, Ireland, English crown, priests"
+                    }
+                ],
+                keywords: ["matt", "catholic", "ireland", "persecution", "priests", "historical"]
+            },
+
+            'documentary_paradox': {
+                title: "The Documentary Paradox",
+                summary: "How to make films both dramatic and truthful. Solution: understand the four story types - triumph, tragedy, personal tragedy, and 'Rolling Stones' ending. All make good stories.",
+                seminars: [
+                    {
+                        title: "July 24 Seminar - Core Teaching",
+                        timestamps: [
+                            { time: "7:05", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=425", label: "Paradox explained" },
+                            { time: "9:40", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=580", label: "Four story types" },
+                            { time: "15:00", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=900", label: "Truth vs manipulation" }
+                        ],
+                        searchTerms: "documentary paradox, dramatic truthful, four story types"
+                    }
+                ],
+                keywords: ["documentary paradox", "dramatic", "truthful", "four story types", "triumph", "tragedy"]
+            },
+
+            'four_story_types': {
+                title: "The Four Types of Story Endings",
+                summary: "Triumph (get what you want), Tragedy (don't get it), Personal Tragedy (get what you want but not what you need), Rolling Stones (don't get what you want but get what you need).",
+                seminars: [
+                    {
+                        title: "July 24 Seminar - Story Types",
+                        timestamps: [
+                            { time: "7:05", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=425", label: "Four types defined" },
+                            { time: "12:43", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=763", label: "Rolling Stones example" }
+                        ],
+                        searchTerms: "four story types, triumph, tragedy, Rolling Stones ending"
+                    }
+                ],
+                keywords: ["four story types", "triumph", "tragedy", "rolling stones", "story endings", "narrative types"]
+            },
+
+            'theme_development': {
+                title: "Finding Your Documentary Theme",
+                summary: "Theme comes from what the story means to YOU personally. Identify your core value, find its opposite, show both sides honestly. This gives you authority in interviews.",
+                seminars: [
+                    {
+                        title: "July 24 Seminar - Theme Process",
+                        timestamps: [
+                            { time: "24:48", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=1488", label: "Personal meaning" },
+                            { time: "33:00", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=1980", label: "Value pairs" },
+                            { time: "1:17:47", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=4667", label: "Interview authority" }
+                        ],
+                        searchTerms: "theme development, personal meaning, values, interview authority"
+                    }
+                ],
+                keywords: ["theme", "meaning", "values", "personal", "authority", "interviews"]
+            },
+
+            'storytelling_vs_weaving': {
+                title: "Storytelling vs Story Weaving",
+                summary: "Storytelling = WHY the story matters (meaning, theme). Story weaving = HOW to make it engaging (suspense, structure). Do storytelling first, then weaving becomes clearer.",
+                seminars: [
+                    {
+                        title: "July 24 Seminar - Key Distinction",
+                        timestamps: [
+                            { time: "21:26", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=1286", label: "Distinction explained" },
+                            { time: "22:16", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=1336", label: "Storytelling vs weaving" }
+                        ],
+                        searchTerms: "storytelling story weaving, meaning engagement, structure"
+                    }
+                ],
+                keywords: ["storytelling", "story weaving", "meaning", "engagement", "structure", "suspense"]
+            },
+
+            'treatment_process': {
+                title: "Documentary Treatment Writing Process",
+                summary: "Write 3-4 pages of your story, find the dramatic question, rewrite with intriguing opening. Multiple drafts essential - only when it's out of your head can you see what you have.",
+                seminars: [
+                    {
+                        title: "July 24 Seminar - Development Process",
+                        timestamps: [
+                            { time: "17:48", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=1068", label: "3-4 page process" },
+                            { time: "18:30", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=1110", label: "Dramatic question" },
+                            { time: "24:44", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=1484", label: "Multiple drafts" }
+                        ],
+                        searchTerms: "treatment writing, dramatic question, multiple drafts"
+                    }
+                ],
+                keywords: ["treatment", "writing", "drafts", "dramatic question", "3-4 pages", "development"]
+            },
+
+            'organization_systems': {
+                title: "Documentary Project Organization",
+                summary: "Set up external system (like Scrivener) to capture all ideas, research, drafts. Documentary makers have lots of ideas - you must be able to find and remember them.",
+                seminars: [
+                    {
+                        title: "July 24 Seminar - Organization",
+                        timestamps: [
+                            { time: "1:04:35", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=3875", label: "Scrivener system" },
+                            { time: "1:05:40", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=3940", label: "External brain" }
+                        ],
+                        searchTerms: "organization, Scrivener, external brain, project management"
+                    }
+                ],
+                keywords: ["organization", "scrivener", "system", "ideas", "research", "external brain"]
+            },
+
+            'thematic_arguments': {
+                title: "Thematic Arguments & Cultural Identity",
+                summary: "How thematic arguments shape documentaries through personal connection. Exploring opposing values (cultural identity vs. assimilation, organized religion vs. personal faith) to create authentic authorial voice without being preachy.",
+                seminars: [
+                    {
+                        title: "July 17 Seminar - Thematic Depth",
+                        timestamps: [
+                            { time: "52:00", url: "https://fathom.video/share/DjsSFmD7XuGXsWyZXscPLhHzr391Cnky?timestamp=3120.9999", label: "Cultural identity" },
+                            { time: "53:00", url: "https://fathom.video/share/DjsSFmD7XuGXsWyZXscPLhHzr391Cnky?timestamp=3182.9999", label: "Personal connection" },
+                            { time: "1:55:00", url: "https://fathom.video/share/DjsSFmD7XuGXsWyZXscPLhHzr391Cnky?timestamp=6950.9999", label: "Daniel Rohr connection" },
+                            { time: "2:00:40", url: "https://fathom.video/share/DjsSFmD7XuGXsWyZXscPLhHzr391Cnky?timestamp=7240.9999", label: "Liam masterclass" }
+                        ],
+                        searchTerms: "thematic argument, cultural identity, assimilation, personal faith, opposing values, authorship"
+                    }
+                ],
+                keywords: ["thematic argument", "cultural identity", "assimilation", "faith", "organized religion", "personal belief", "authorship", "opposing values"]
+            }
+        };
+
+        function performSearch() {
+            const query = document.querySelector('.search-input').value.trim().toLowerCase();
+            if (!query) return;
+
+            const results = findMatches(query);
+            displayResults(query, results);
+        }
+
+        function searchQuestion(question) {
+            // Switch to search tab and perform search
+            switchTab('search');
+            setTimeout(() => {
+                document.querySelector('.search-input').value = question;
+                performSearch();
+            }, 100);
+        }
+
+        function findMatches(query) {
+            const results = [];
+            const queryWords = query.split(/\s+/).filter(word => word.length > 2);
+
+            Object.entries(SEMINAR_INDEX).forEach(([key, data]) => {
+                let score = 0;
+                
+                // Check keywords for exact matches
+                data.keywords.forEach(keyword => {
+                    if (query.includes(keyword.toLowerCase())) {
+                        score += keyword.length > 5 ? 10 : 5; // Longer keywords get higher score
+                    }
+                });
+
+                // Check title and summary
+                const titleWords = data.title.toLowerCase();
+                const summaryWords = data.summary.toLowerCase();
+                
+                queryWords.forEach(word => {
+                    if (titleWords.includes(word)) score += 3;
+                    if (summaryWords.includes(word)) score += 2;
+                });
+
+                // Check search terms in seminars
+                data.seminars.forEach(seminar => {
+                    if (seminar.searchTerms.toLowerCase().includes(query)) score += 5;
+                    queryWords.forEach(word => {
+                        if (seminar.searchTerms.toLowerCase().includes(word)) score += 1;
+                    });
+                });
+
+                if (score > 0) {
+                    results.push({ ...data, score, key });
+                }
+            });
+
+            return results.sort((a, b) => b.score - a.score);
+        }
+
+        function displayResults(query, results) {
+            const resultsSection = document.getElementById('resultsSection');
+            const resultsCount = document.getElementById('resultsCount');
+            const resultsContainer = document.getElementById('resultsContainer');
+
+            if (results.length === 0) {
+                resultsContainer.innerHTML = `
+                    <div class="no-results">
+                        <h3>No matches found</h3>
+                        <p>Try different keywords or browse the weekly seminars tab.</p>
+                    </div>
+                `;
+                resultsCount.textContent = `No results for "${query}"`;
+            } else {
+                resultsCount.textContent = `Found ${results.length} result${results.length > 1 ? 's' : ''} for "${query}"`;
+                
+                resultsContainer.innerHTML = results.map(result => `
+                    <div class="index-card">
+                        <div class="index-title">${result.title}</div>
+                        <div class="index-summary">${result.summary}</div>
+                        
+                        <div class="index-actions">
+                            ${result.seminars.map(seminar => `
+                                <div class="seminar-link">
+                                    <div class="seminar-title">${seminar.title}</div>
+                                    <div class="timestamp-links">
+                                        ${seminar.timestamps.map(ts => 
+                                            `<a href="${ts.url}" target="_blank" class="timestamp-link">${ts.time} - ${ts.label}</a>`
+                                        ).join('')}
+                                    </div>
+                                    <div class="search-terms">
+                                        <strong>Fathom search terms:</strong> ${seminar.searchTerms}
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            resultsSection.style.display = 'block';
+        }
+
+        function clearResults() {
+            const resultsSection = document.getElementById('resultsSection');
+            const searchInput = document.querySelector('.search-input');
+            
+            resultsSection.style.display = 'none';
+            searchInput.value = '';
+        }
+
+        // Setup event listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.querySelector('.search-input');
+            searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
