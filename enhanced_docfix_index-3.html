@@ -725,8 +725,8 @@ Weekly seminar focusing on student project development and hands-on workshop ele
             if (password === 'Seminar Index') {
                 document.getElementById('passwordScreen').style.display = 'none';
                 document.getElementById('mainContent').style.display = 'block';
-                // Store in session so they don't need to re-enter if they refresh
-                sessionStorage.setItem('docfixAccess', 'true');
+                // Store permanently so they don't need to re-enter
+                localStorage.setItem('docfixAccess', 'true');
             } else {
                 errorMessage.style.display = 'block';
                 document.getElementById('passwordInput').value = '';
@@ -734,9 +734,9 @@ Weekly seminar focusing on student project development and hands-on workshop ele
             }
         }
 
-        // Check if already authenticated this session
+        // Check if already authenticated
         document.addEventListener('DOMContentLoaded', () => {
-            if (sessionStorage.getItem('docfixAccess') === 'true') {
+            if (localStorage.getItem('docfixAccess') === 'true') {
                 document.getElementById('passwordScreen').style.display = 'none';
                 document.getElementById('mainContent').style.display = 'block';
             } else {
