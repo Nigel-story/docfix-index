@@ -1115,6 +1115,14 @@ Weekly seminar focusing on student project development and hands-on workshop ele
             }
 
             resultsSection.style.display = 'block';
+            
+            // Smooth scroll to results
+            setTimeout(() => {
+                resultsSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }, 100);
         }
 
         function clearResults() {
