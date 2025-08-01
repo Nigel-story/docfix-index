@@ -21,7 +21,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
             min-height: 100vh;
             padding: 2rem;
         }
@@ -458,12 +458,12 @@
 </head>
 <body>
 <!-- Password Protection Screen -->
-<div id="passwordScreen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; z-index: 9999;">
+<div id="passwordScreen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); display: flex; align-items: center; justify-content: center; z-index: 9999;">
     <div style="background: white; padding: 3rem; border-radius: 20px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); text-align: center; max-width: 400px; width: 90%;">
         <h2 style="color: #2c3e50; margin-bottom: 1rem; font-size: 1.8rem;">📖 DocFix Seminar Index</h2>
         <p style="color: #666; margin-bottom: 2rem; line-height: 1.5;">This index is for DocFix students only. Please enter the access password:</p>
         <input type="text" id="passwordInput" placeholder="Enter password" style="width: 100%; padding: 1rem; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 1rem; margin-bottom: 1rem; outline: none; text-align: center;" onkeypress="if(event.key==='Enter') checkPassword()"/>
-        <button onclick="checkPassword()" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 1rem 2rem; border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">Access Index</button>
+        <button onclick="checkPassword()" style="background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); color: white; border: none; padding: 1rem 2rem; border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">Access Index</button>
         <div id="errorMessage" style="color: #e74c3c; margin-top: 1rem; display: none;">Incorrect password. Please try again.</div>
     </div>
 </div>
@@ -477,69 +477,12 @@
 </div>
 
 <div class="nav-tabs">
-<button class="nav-tab active" onclick="switchTab('search')">🔍 Search Topics</button>
-<button class="nav-tab" onclick="switchTab('weekly')">📅 Weekly Seminars</button>
-</div>
-
-<!-- Search Tab Content -->
-<div id="searchTab" class="tab-content active">
-<div class="search-section">
-<div class="search-container">
-<input class="search-input" placeholder="Search for topics like 'Rik's documentary', 'documentary paradox', 'green burial'..." type="text"/>
-<button class="search-button" onclick="performSearch()">Search</button>
-</div>
-<div class="quick-topics">
-<div class="topic-button" onclick="searchQuestion('documentary paradox')">Documentary Paradox</div>
-<div class="topic-button" onclick="searchQuestion('Rik documentary')">Rik's Mama's Pride</div>
-<div class="topic-button" onclick="searchQuestion('four story types')">Four Story Types</div>
-<div class="topic-button" onclick="searchQuestion('finding theme')">Finding Theme</div>
-<div class="topic-button" onclick="searchQuestion('green burial')">Susannah's Green Burial</div>
-<div class="topic-button" onclick="searchQuestion('jet boat racing')">Rejean's Jet Boats</div>
-<div class="topic-button" onclick="searchQuestion('cursed man')">A Cursed Man Success</div>
-<div class="topic-button" onclick="searchQuestion('prism effects')">Creative Filming</div>
-<div class="topic-button" onclick="searchQuestion('Hope Beyond Fear')">Panikos Projects</div>
-<div class="topic-button" onclick="searchQuestion('death care')">Death Care</div>
-<div class="topic-button" onclick="searchQuestion('reenactments')">Reenactments</div>
-<div class="topic-button" onclick="searchQuestion('cultural identity')">Cultural Identity</div>
-<div class="topic-button" onclick="searchQuestion('thematic argument')">Thematic Arguments</div>
-<div class="topic-button" onclick="searchQuestion('Fathom AI')">AI Tools</div>
-<div class="topic-button" onclick="searchQuestion('systemic change')">Systemic Change</div>
-</div>
-<div class="example-searches">
-<div class="example-title">💡 Try searching for:</div>
-<div class="example-list">
-<div class="example-search" onclick="searchQuestion('death care techniques')">Death care techniques</div>
-<div class="example-search" onclick="searchQuestion('Mama Pride plane crash')">Mama's Pride plane crash</div>
-<div class="example-search" onclick="searchQuestion('Matt Catholic film')">Matt's Catholic film</div>
-<div class="example-search" onclick="searchQuestion('Team Rambo failure')">Team Rambo disasters</div>
-<div class="example-search" onclick="searchQuestion('Vancouver rave culture')">Vancouver rave scene</div>
-<div class="example-search" onclick="searchQuestion('prism effects filming')">Prism effects filming</div>
-<div class="example-search" onclick="searchQuestion('Hope Beyond Fear marches')">Panikos female marches</div>
-<div class="example-search" onclick="searchQuestion('Fathom AI tools')">AI tools discussion</div>
-<div class="example-search" onclick="searchQuestion('cultural identity')">Cultural identity themes</div>
-<div class="example-search" onclick="searchQuestion('Rolling Stones ending')">Rolling Stones ending</div>
-<div class="example-search" onclick="searchQuestion('unrealized potential')">Unrealized potential</div>
-<div class="example-search" onclick="searchQuestion('reenactment planning')">Reenactment planning</div>
-<div class="example-search" onclick="searchQuestion('interview authority')">Interview authority</div>
-<div class="example-search" onclick="searchQuestion('thematic argument')">Thematic arguments</div>
-<div class="example-search" onclick="searchQuestion('systemic change challenges')">Systemic change challenges</div>
-</div>
-</div>
-</div>
-
-<div class="results-section" id="resultsSection">
-<div class="results-header">
-<div class="results-count" id="resultsCount"></div>
-<button class="clear-results" onclick="clearResults()">New Search</button>
-</div>
-<div id="resultsContainer">
-<!-- Search results will be populated here -->
-</div>
-</div>
+<button class="nav-tab active" onclick="switchTab('weekly')">📅 Weekly Seminars</button>
+<button class="nav-tab" onclick="switchTab('search')">🔍 Search Topics</button>
 </div>
 
 <!-- Weekly Browser Tab Content -->
-<div id="weeklyTab" class="tab-content">
+<div id="weeklyTab" class="tab-content active">
 <div class="weekly-browser">
 <div class="weekly-grid">
 
@@ -563,7 +506,7 @@ New member Marta (animation specialist) joins DocFix community. Platform updates
 <a href="https://fathom.video/share/PoyNkJdSwpxoQPB2mqVFQYqV-5km6n79" target="_blank" class="quick-link">📺 Full Seminar</a>
 <a href="https://fathom.video/share/PoyNkJdSwpxoQPB2mqVFQYqV-5km6n79?timestamp=48" target="_blank" class="quick-link">Community Tour</a>
 <a href="https://fathom.video/share/PoyNkJdSwpxoQPB2mqVFQYqV-5km6n79?timestamp=600" target="_blank" class="quick-link">Animation Discussion</a>
-<a href="https://fathom.video/share/PoyNkJdSwpxoQPB2mqVFQYqV-5km6n79?timestamp=1320" target="_blank" class="quick-link">Story Purpose</a>
+<a href="https://fathom.video/share/PoyNkJdSwpxoQPB2mqVFQYqV-5km6n79?timestamp=1326" target="_blank" class="quick-link">Story Purpose</a>
 <a href="https://fathom.video/share/PoyNkJdSwpxoQPB2mqVFQYqV-5km6n79?timestamp=3840" target="_blank" class="quick-link">Character Analysis</a>
 <a href="https://fathom.video/share/PoyNkJdSwpxoQPB2mqVFQYqV-5km6n79?timestamp=3240" target="_blank" class="quick-link">360° Arctic Footage</a>
 </div>
@@ -610,10 +553,10 @@ Advanced thematic arguments exploration: how personal connection and opposing va
 </div>
 <div class="quick-links">
 <a href="https://fathom.video/share/DjsSFmD7XuGXsWyZXscPLhHzr391Cnky" target="_blank" class="quick-link">📺 Full Seminar</a>
-<a href="https://fathom.video/share/DjsSFmD7XuGXsWyZXscPLhHzr391Cnky?timestamp=3120.9999" target="_blank" class="quick-link">Cultural Identity</a>
-<a href="https://fathom.video/share/DjsSFmD7XuGXsWyZXscPLhHzr391Cnky?timestamp=3182.9999" target="_blank" class="quick-link">Personal Connection</a>
-<a href="https://fathom.video/share/DjsSFmD7XuGXsWyZXscPLhHzr391Cnky?timestamp=6950.9999" target="_blank" class="quick-link">Daniel Rohr Connect</a>
-<a href="https://fathom.video/share/DjsSFmD7XuGXsWyZXscPLhHzr391Cnky?timestamp=7240.9999" target="_blank" class="quick-link">Liam Masterclass</a>
+<a href="https://fathom.video/share/DjsSFmD7XuGXsWyZXscPLhHzr391Cnky?timestamp=3120" target="_blank" class="quick-link">Cultural Identity</a>
+<a href="https://fathom.video/share/DjsSFmD7XuGXsWyZXscPLhHzr391Cnky?timestamp=3182" target="_blank" class="quick-link">Personal Connection</a>
+<a href="https://fathom.video/share/DjsSFmD7XuGXsWyZXscPLhHzr391Cnky?timestamp=6950" target="_blank" class="quick-link">Daniel Rohr Connect</a>
+<a href="https://fathom.video/share/DjsSFmD7XuGXsWyZXscPLhHzr391Cnky?timestamp=7240" target="_blank" class="quick-link">Liam Masterclass</a>
 </div>
 </div>
 
@@ -684,8 +627,7 @@ Major DocFix success celebration: Liam's "A Cursed Man" hits #1 on Apple TV in m
 <a href="https://fathom.video/share/AYZsWmGsUuy1osoFzhaVjQXyVVPyyTey" target="_blank" class="quick-link">📺 Full Seminar</a>
 <a href="https://fathom.video/share/AYZsWmGsUuy1osoFzhaVjQXyVVPyyTey?timestamp=497" target="_blank" class="quick-link">Cursed Man Success</a>
 <a href="https://fathom.video/share/AYZsWmGsUuy1osoFzhaVjQXyVVPyyTey?timestamp=1786" target="_blank" class="quick-link">Prism Effects Demo</a>
-<a href="https://fathom.video/share/AYZsWmGsUuy1osoFzhaVjQXyVVPyyTey?timestamp=2429" target="_blank" class="quick-link">Fathom AI Tools</a>
-<a href="https://fathom.video/share/AYZsWmGsUuy1osoFzhaVjQXyVVPyyTey?timestamp=3277" target="_blank" class="quick-link">Female Director Search</a>
+<a href="https://fathom.video/share/AYZsWmGsUuy1osoFzhaVjQXyVVPyyTey?timestamp=2429" target="_blank" class="quick-link">Panikos Projects</a>
 </div>
 </div>
 
@@ -696,39 +638,91 @@ Major DocFix success celebration: Liam's "A Cursed Man" hits #1 on Apple TV in m
 <div class="week-badge">Project Reviews</div>
 </div>
 <div class="week-topics">
-<span class="topic-tag">Sean's Progress</span>
-<span class="topic-tag">Matt's Irish Doc</span>
+<span class="topic-tag">Sean's Rave Documentary</span>
+<span class="topic-tag">Matt's Irish History</span>
 <span class="topic-tag">Teddy's Brain Science</span>
-<span class="topic-tag">AI Tools</span>
+<span class="topic-tag">AI Tools Integration</span>
+<span class="topic-tag">Rejean's Jet Boats</span>
 </div>
 <div class="week-highlights">
-Project review session focusing on building solid content foundations before technical fine-tuning. Sean's documentary progress with storytelling clarity and narrative structure development needs. Matt's Irish priest historical documentary feedback on research approach and AI tool integration for archive materials. Teddy's brain science documentary rough cut review balancing scientific accuracy with compelling narrative development. Emphasis on creating strong content blocks as foundation rather than perfecting individual sequences prematurely.
+Comprehensive project reviews across multiple documentaries. Sean's Vancouver rave culture doc needs clearer storytelling motivation and sequence headlines - advice on establishing cultural context and character motivations. Matt's Irish Catholic persecution documentary developed through AI-assisted script refinement, focusing on dual narrative structure between Father Francis and historical timeline. Teddy's brain science feature progresses with 39-minute rough cut showing solid individual sequences. Rejean joins live from jet boat world championships with Team Rambo, discussing racing strategy and documentary footage rights. Extensive ChatGPT demonstration for documentary development workflow.
 </div>
 <div class="quick-links">
 <a href="https://fathom.video/share/HwQTgBdqpJes_XxMiTo_Fyhhazjc-6FE" target="_blank" class="quick-link">📺 Full Seminar</a>
-<span style="color: #999; font-size: 0.9rem;">Timestamps available in full transcript</span>
+<a href="https://fathom.video/share/HwQTgBdqpJes_XxMiTo_Fyhhazjc-6FE?timestamp=134" target="_blank" class="quick-link">Sean's Storytelling</a>
+<a href="https://fathom.video/share/HwQTgBdqpJes_XxMiTo_Fyhhazjc-6FE?timestamp=1768" target="_blank" class="quick-link">Matt's AI Workflow</a>
+<a href="https://fathom.video/share/HwQTgBdqpJes_XxMiTo_Fyhhazjc-6FE?timestamp=4576" target="_blank" class="quick-link">Teddy's Brain Doc</a>
+<a href="https://fathom.video/share/HwQTgBdqpJes_XxMiTo_Fyhhazjc-6FE?timestamp=1317" target="_blank" class="quick-link">Rejean Live Racing</a>
 </div>
 </div>
 
-<!-- August 7, 2025 Seminar - Future placeholder -->
-<div class="week-card" style="opacity: 0.6; border: 2px dashed #ddd;">
+<!-- June 5, 2025 Seminar -->
+<div class="week-card">
 <div class="week-header">
-<div class="week-date">August 7, 2025</div>
-<div class="week-badge">Upcoming</div>
+<div class="week-date">June 5, 2025</div>
+<div class="week-badge">Personal Stories</div>
 </div>
 <div class="week-topics">
-<span class="topic-tag">Student Projects</span>
-<span class="topic-tag">Workshop Session</span>
+<span class="topic-tag">Larry King Project</span>
+<span class="topic-tag">Personal Documentary Ethics</span>
+<span class="topic-tag">DocFix Community</span>
+<span class="topic-tag">Storytelling vs Living</span>
 </div>
 <div class="week-highlights">
-Weekly seminar focusing on student project development and hands-on workshop elements. Content will be indexed here following the session.
+Focus on authentic exploration versus premature documentary structuring. Ian's Larry King project guidance: assemble footage without overthinking to discover what emerges, frame around "price of success" theme, complete Brooklyn day footage by June 16 deadline. Discussion of Ian's potential family spiritual awakening documentary - advised to experience journey authentically first rather than imposing documentary limits on personal healing process. DocFix community insights: group learning more valuable than individual consulting, peer support creates symbiotic learning environment. Emphasis on living life versus documenting it when dealing with personal transformation.
 </div>
 <div class="quick-links">
-<span style="color: #999; font-size: 0.9rem;">Links will be available after seminar</span>
+<a href="https://fathom.video/share/_9KPAMHcTr9myTv73dwLDyhesSsnwDpX" target="_blank" class="quick-link">📺 Full Seminar</a>
+<a href="https://fathom.video/share/_9KPAMHcTr9myTv73dwLDyhesSsnwDpX?timestamp=154" target="_blank" class="quick-link">Sean's Context Setup</a>
+<a href="https://fathom.video/share/_9KPAMHcTr9myTv73dwLDyhesSsnwDpX?timestamp=2643" target="_blank" class="quick-link">Larry King Guidance</a>
+<a href="https://fathom.video/share/_9KPAMHcTr9myTv73dwLDyhesSsnwDpX?timestamp=1887" target="_blank" class="quick-link">Personal Doc Ethics</a>
+<a href="https://fathom.video/share/_9KPAMHcTr9myTv73dwLDyhesSsnwDpX?timestamp=3692" target="_blank" class="quick-link">Community Learning</a>
 </div>
 </div>
 
 </div>
+</div>
+</div>
+
+<!-- Search Topics Tab Content -->
+<div id="searchTab" class="tab-content">
+<div class="search-section">
+<div class="search-container">
+<input type="text" id="searchInput" class="search-input" placeholder="Search seminars by topic, concept, or student name..." onkeyup="performSearch()" />
+<button class="search-button" onclick="performSearch()">Search</button>
+</div>
+
+<div class="quick-topics">
+<button class="topic-button" onclick="quickSearch('Documentary Paradox')">Documentary Paradox</button>
+<button class="topic-button" onclick="quickSearch('Story Types')">Story Types</button>
+<button class="topic-button" onclick="quickSearch('Theme Development')">Theme Development</button>
+<button class="topic-button" onclick="quickSearch('Character Analysis')">Character Analysis</button>
+<button class="topic-button" onclick="quickSearch('Reenactments')">Reenactments</button>
+<button class="topic-button" onclick="quickSearch('Cultural Identity')">Cultural Identity</button>
+<button class="topic-button" onclick="quickSearch('AI Tools')">AI Tools</button>
+<button class="topic-button" onclick="quickSearch('Success Stories')">Success Stories</button>
+</div>
+
+<div class="example-searches">
+<div class="example-title">Try searching for:</div>
+<div class="example-list">
+<div class="example-search" onclick="quickSearch('Liam cursed man')">Liam's success story</div>
+<div class="example-search" onclick="quickSearch('green burial death care')">Green burial project</div>
+<div class="example-search" onclick="quickSearch('jet boat failure')">Documenting failure</div>
+<div class="example-search" onclick="quickSearch('rave culture Vancouver')">Rave culture doc</div>
+<div class="example-search" onclick="quickSearch('prism effects filming')">Creative filming techniques</div>
+<div class="example-search" onclick="quickSearch('Fathom AI')">AI tools for docs</div>
+</div>
+</div>
+</div>
+
+<!-- Search Results Section -->
+<div id="searchResults" class="results-section">
+<div class="results-header">
+<div class="results-count" id="resultsCount"></div>
+<button class="clear-results" onclick="clearSearch()">Clear Results</button>
+</div>
+<div id="searchResultsContainer"></div>
 </div>
 </div>
 
@@ -736,606 +730,264 @@ Weekly seminar focusing on student project development and hands-on workshop ele
 </div>
 
 <script>
-        function checkPassword() {
-            const password = document.getElementById('passwordInput').value;
-            const errorMessage = document.getElementById('errorMessage');
-            
-            if (password === 'Seminar Index') {
-                document.getElementById('passwordScreen').style.display = 'none';
-                document.getElementById('mainContent').style.display = 'block';
-            } else {
-                errorMessage.style.display = 'block';
-                document.getElementById('passwordInput').value = '';
-                document.getElementById('passwordInput').focus();
-            }
-        }
+// Password protection
+function checkPassword() {
+    const password = document.getElementById('passwordInput').value;
+    const correctPassword = 'Seminar Index'; // Change this to your desired password
+    
+    if (password === correctPassword) {
+        document.getElementById('passwordScreen').style.display = 'none';
+        document.getElementById('mainContent').style.display = 'block';
+    } else {
+        document.getElementById('errorMessage').style.display = 'block';
+        document.getElementById('passwordInput').value = '';
+    }
+}
 
-        // Check if already authenticated
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('passwordInput').focus();
+// Tab switching functionality
+function switchTab(tabName) {
+    // Hide all tab contents
+    const tabs = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => tab.classList.remove('active'));
+    
+    // Remove active class from all nav tabs
+    const navTabs = document.querySelectorAll('.nav-tab');
+    navTabs.forEach(tab => tab.classList.remove('active'));
+    
+    // Show selected tab content
+    document.getElementById(tabName + 'Tab').classList.add('active');
+    
+    // Add active class to clicked nav tab
+    event.target.classList.add('active');
+    
+    // Hide search results when switching away from search tab
+    if (tabName !== 'search') {
+        document.getElementById('searchResults').style.display = 'none';
+    }
+}
+
+// Search functionality
+const seminarData = [
+    {
+        date: "July 31, 2025",
+        badge: "Community & Story",
+        topics: ["New Member Marta", "Community Updates", "Story Purpose", "Character Analysis", "Static vs Kinetic"],
+        content: "New member Marta animation specialist joins DocFix community Platform updates simplified layout persistent Zoom link Fathom AI integration searching past seminars storytelling lesson define story core purpose motivation technical details Teddy completes picture lock intensive brain science feature documentary Rejean assigned detailed character analysis Felix jet boat racing doc Rajesh showcases stunning 360 Arctic wildlife footage polar bears walruses",
+        fullLink: "https://fathom.video/share/PoyNkJdSwpxoQPB2mqVFQYqV-5km6n79",
+        timestamps: [
+            {name: "Community Tour", link: "https://fathom.video/share/PoyNkJdSwpxoQPB2mqVFQYqV-5km6n79?timestamp=48"},
+            {name: "Animation Discussion", link: "https://fathom.video/share/PoyNkJdSwpxoQPB2mqVFQYqV-5km6n79?timestamp=600"},
+            {name: "Story Purpose", link: "https://fathom.video/share/PoyNkJdSwpxoQPB2mqVFQYqV-5km6n79?timestamp=1326"},
+            {name: "Character Analysis", link: "https://fathom.video/share/PoyNkJdSwpxoQPB2mqVFQYqV-5km6n79?timestamp=3840"},
+            {name: "360° Arctic Footage", link: "https://fathom.video/share/PoyNkJdSwpxoQPB2mqVFQYqV-5km6n79?timestamp=3240"}
+        ]
+    },
+    {
+        date: "July 24, 2025",
+        badge: "Foundation",
+        topics: ["Documentary Paradox", "Four Story Types", "Theme Development", "Student Projects"],
+        content: "Core DocFix concepts documentary paradox dramatic truthful solved four story types triumph tragedy personal tragedy Rolling Stones ending Rik introduces Mama Pride project talented 1970s Southern rock band three near-misses stardom pivotal Lynyrd Skynyrd plane crash connection Matt shares deeply personal Catholic persecution documentary 17th century Ireland Essential distinction storytelling WHY story matters story weaving HOW engage Theme development opposing values gives interview authority",
+        fullLink: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9",
+        timestamps: [
+            {name: "Documentary Paradox", link: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=425"},
+            {name: "Four Story Types", link: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=580"},
+            {name: "Theme Process", link: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=1488"},
+            {name: "Rik's Project", link: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=638"}
+        ]
+    },
+    {
+        date: "July 17, 2025",
+        badge: "Advanced",
+        topics: ["Thematic Arguments", "Cultural Identity", "Authorship", "Personal Connection"],
+        content: "Advanced thematic arguments exploration personal connection opposing values shape documentary storytelling Matt develops Irish Catholic faith versus historical persecution themes Sean works Vancouver rave culture documentary examining cultural identity versus assimilation Serena Larry King project explores success versus inner peace Focus connecting personal motivations story structure maintaining objectivity Development authentic authorial voice without being preachy exploring value conflicts",
+        fullLink: "https://fathom.video/share/DjsSFmD7XuGXsWyZXscPLhHzr391Cnky",
+        timestamps: [
+            {name: "Cultural Identity", link: "https://fathom.video/share/DjsSFmD7XuGXsWyZXscPLhHzr391Cnky?timestamp=3120"},
+            {name: "Personal Connection", link: "https://fathom.video/share/DjsSFmD7XuGXsWyZXscPLhHzr391Cnky?timestamp=3182"},
+            {name: "Daniel Rohr Connect", link: "https://fathom.video/share/DjsSFmD7XuGXsWyZXscPLhHzr391Cnky?timestamp=6950"},
+            {name: "Liam Masterclass", link: "https://fathom.video/share/DjsSFmD7XuGXsWyZXscPLhHzr391Cnky?timestamp=7240"}
+        ]
+    },
+    {
+        date: "July 11, 2025",
+        badge: "Deep Dive",
+        topics: ["Susannah's Green Burial", "Death Care", "Reenactments", "Story Structure"],
+        content: "Comprehensive review Susannah green burial documentary following Sabrina death friends commitment natural death care Deep focus Megan failed green cemetery project powerful story element systemic change challenges Extensive reenactment planning discussion importance showing failure documentary storytelling Death doula interviews community-based death care healing practice Analysis transforming personal tragedy universal story alternative approaches death dying modern society",
+        fullLink: "https://fathom.video/share/fwbBeCTZ8yFZA8AEHhoDNSZexn6s3ajd",
+        timestamps: [
+            {name: "Project Review Start", link: "https://fathom.video/share/fwbBeCTZ8yFZA8AEHhoDNSZexn6s3ajd?timestamp=1632"},
+            {name: "Death Doula Interview", link: "https://fathom.video/share/fwbBeCTZ8yFZA8AEHhoDNSZexn6s3ajd?timestamp=3022"},
+            {name: "Reenactment Planning", link: "https://fathom.video/share/fwbBeCTZ8yFZA8AEHhoDNSZexn6s3ajd?timestamp=3555"},
+            {name: "Radio Doc Resource", link: "https://fathom.video/share/fwbBeCTZ8yFZA8AEHhoDNSZexn6s3ajd?timestamp=5923"}
+        ]
+    },
+    {
+        date: "June 26, 2025",
+        badge: "Multi-Project",
+        topics: ["Rejean's Jet Boats", "Sean's Rave Culture", "Fathom AI Tools", "Storytelling Technique"],
+        content: "Multi-project seminar Rejean Team Rambo fails spectacularly jet boat world championships creating perfect documentary material unprepared students versus supportive community Sean Vancouver rave culture documentary receives feedback sequence connections developing stronger authorial voice Extensive AI tools discussion featuring live Fathom demonstrations seminar analysis footage review capabilities Focus storytelling technique improvements documenting failure compelling narrative material rather than avoiding",
+        fullLink: "https://fathom.video/share/q3r5Kg5GN9zkjMGF5LxjLcxg6gGVQEHp",
+        timestamps: [
+            {name: "Fathom AI Demo", link: "https://fathom.video/share/q3r5Kg5GN9zkjMGF5LxjLcxg6gGVQEHp?timestamp=441"},
+            {name: "Story of Failure", link: "https://fathom.video/share/q3r5Kg5GN9zkjMGF5LxjLcxg6gGVQEHp?timestamp=1043"},
+            {name: "Sequence Tagging", link: "https://fathom.video/share/q3r5Kg5GN9zkjMGF5LxjLcxg6gGVQEHp?timestamp=2067"},
+            {name: "Lou's Project Upload", link: "https://fathom.video/share/q3r5Kg5GN9zkjMGF5LxjLcxg6gGVQEHp?timestamp=4045"}
+        ]
+    },
+    {
+        date: "June 12, 2025",
+        badge: "Project Reviews",
+        topics: ["Sean's Rave Documentary", "Matt's Irish History", "Teddy's Brain Science", "AI Tools Integration", "Rejean's Jet Boats"],
+        content: "Comprehensive project reviews multiple documentaries Sean Vancouver rave culture doc needs clearer storytelling motivation sequence headlines advice establishing cultural context character motivations Matt Irish Catholic persecution documentary developed AI-assisted script refinement focusing dual narrative structure Father Francis historical timeline Teddy brain science feature progresses 39-minute rough cut showing solid individual sequences Rejean joins live jet boat world championships Team Rambo discussing racing strategy documentary footage rights Extensive ChatGPT demonstration documentary development workflow",
+        fullLink: "https://fathom.video/share/HwQTgBdqpJes_XxMiTo_Fyhhazjc-6FE",
+        timestamps: [
+            {name: "Sean's Storytelling", link: "https://fathom.video/share/HwQTgBdqpJes_XxMiTo_Fyhhazjc-6FE?timestamp=134"},
+            {name: "Matt's AI Workflow", link: "https://fathom.video/share/HwQTgBdqpJes_XxMiTo_Fyhhazjc-6FE?timestamp=1768"},
+            {name: "Teddy's Brain Doc", link: "https://fathom.video/share/HwQTgBdqpJes_XxMiTo_Fyhhazjc-6FE?timestamp=4576"},
+            {name: "Rejean Live Racing", link: "https://fathom.video/share/HwQTgBdqpJes_XxMiTo_Fyhhazjc-6FE?timestamp=1317"}
+        ]
+    },
+    {
+        date: "June 5, 2025",
+        badge: "Personal Stories",
+        topics: ["Larry King Project", "Personal Documentary Ethics", "DocFix Community", "Storytelling vs Living"],
+        content: "Focus authentic exploration versus premature documentary structuring Ian Larry King project guidance assemble footage without overthinking discover what emerges frame around price success theme complete Brooklyn day footage June 16 deadline Discussion Ian potential family spiritual awakening documentary advised experience journey authentically first rather than imposing documentary limits personal healing process DocFix community insights group learning more valuable than individual consulting peer support creates symbiotic learning environment Emphasis living life versus documenting when dealing personal transformation",
+        fullLink: "https://fathom.video/share/_9KPAMHcTr9myTv73dwLDyhesSsnwDpX",
+        timestamps: [
+            {name: "Sean's Context Setup", link: "https://fathom.video/share/_9KPAMHcTr9myTv73dwLDyhesSsnwDpX?timestamp=154"},
+            {name: "Larry King Guidance", link: "https://fathom.video/share/_9KPAMHcTr9myTv73dwLDyhesSsnwDpX?timestamp=2643"},
+            {name: "Personal Doc Ethics", link: "https://fathom.video/share/_9KPAMHcTr9myTv73dwLDyhesSsnwDpX?timestamp=1887"},
+            {name: "Community Learning", link: "https://fathom.video/share/_9KPAMHcTr9myTv73dwLDyhesSsnwDpX?timestamp=3692"}
+        ]
+    },
+    {
+        date: "June 19, 2025",
+        badge: "Success Story",
+        topics: ["A Cursed Man Success", "Creative Filming", "Prism Effects", "Panikos Projects"],
+        content: "Major DocFix success celebration Liam A Cursed Man hits number 1 Apple TV multiple countries top 3 most searched documentary Google Success attributed strong storytelling over subject matter appeal Creative filming workshop practical prism glass effects techniques unique visual styles without expensive equipment Panikos presents Hope Beyond Fear series four female marches worldwide Argentina Iran Cyprus Rwanda seeking female director strengthen pitch Fathom AI tools introduction seminar analysis content organization",
+        fullLink: "https://fathom.video/share/AYZsWmGsUuy1osoFzhaVjQXyVVPyyTey",
+        timestamps: [
+            {name: "Cursed Man Success", link: "https://fathom.video/share/AYZsWmGsUuy1osoFzhaVjQXyVVPyyTey?timestamp=497"},
+            {name: "Prism Effects Demo", link: "https://fathom.video/share/AYZsWmGsUuy1osoFzhaVjQXyVVPyyTey?timestamp=1786"},
+            {name: "Panikos Projects", link: "https://fathom.video/share/AYZsWmGsUuy1osoFzhaVjQXyVVPyyTey?timestamp=2429"}
+        ]
+    }
+];
+
+// Search functionality
+function performSearch() {
+    const query = document.getElementById('searchInput').value.toLowerCase().trim();
+    
+    if (query.length < 2) {
+        document.getElementById('searchResults').style.display = 'none';
+        return;
+    }
+    
+    const results = searchSeminars(query);
+    displaySearchResults(results, query);
+}
+
+function quickSearch(term) {
+    document.getElementById('searchInput').value = term;
+    performSearch();
+}
+
+function searchSeminars(query) {
+    const results = [];
+    
+    seminarData.forEach(seminar => {
+        let relevanceScore = 0;
+        let matchedTopics = [];
+        let matchedContent = [];
+        
+        // Search in topics
+        seminar.topics.forEach(topic => {
+            if (topic.toLowerCase().includes(query)) {
+                relevanceScore += 3;
+                matchedTopics.push(topic);
+            }
         });
-
-        // Tab switching functionality
-        function switchTab(tabName) {
-            // Update nav tabs
-            document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
-            document.querySelector(`[onclick="switchTab('${tabName}')"]`).classList.add('active');
-            
-            // Update content
-            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-            document.getElementById(tabName + 'Tab').classList.add('active');
-            
-            // Clear search results when switching away from search tab
-            if (tabName !== 'search') {
-                clearResults();
+        
+        // Search in content
+        if (seminar.content.toLowerCase().includes(query)) {
+            relevanceScore += 1;
+            // Extract context around the match
+            const words = seminar.content.split(' ');
+            const queryIndex = words.findIndex(word => word.toLowerCase().includes(query));
+            if (queryIndex !== -1) {
+                const start = Math.max(0, queryIndex - 5);
+                const end = Math.min(words.length, queryIndex + 10);
+                matchedContent.push(words.slice(start, end).join(' '));
             }
         }
-
-        // Enhanced index database with all new seminars
-        const SEMINAR_INDEX = {
-            'a_cursed_man_success': {
-                title: "A Cursed Man Documentary Success",
-                summary: "Liam's DocFix documentary reaches #1 on Apple TV in multiple countries and top 3 most searched documentaries on Google. Success attributed to strong storytelling rather than subject matter. Key lessons about owning film rights and ongoing revenue.",
-                seminars: [
-                    {
-                        title: "June 19 Seminar - Success Analysis",
-                        timestamps: [
-                            { time: "8:17", url: "https://fathom.video/share/AYZsWmGsUuy1osoFzhaVjQXyVVPyyTey?timestamp=497", label: "Apple TV #1 announcement" },
-                            { time: "9:09", url: "https://fathom.video/share/AYZsWmGsUuy1osoFzhaVjQXyVVPyyTey?timestamp=549", label: "Google search rankings" },
-                            { time: "20:17", url: "https://fathom.video/share/AYZsWmGsUuy1osoFzhaVjQXyVVPyyTey?timestamp=1217", label: "Film rights ownership" },
-                            { time: "21:31", url: "https://fathom.video/share/AYZsWmGsUuy1osoFzhaVjQXyVVPyyTey?timestamp=1291", label: "Budget breakdown" }
-                        ],
-                        searchTerms: "A Cursed Man, Liam, Apple TV, success, film rights, budget, marketing, ownership"
-                    }
-                ],
-                keywords: ["cursed man", "liam", "apple tv", "success", "film rights", "budget", "ownership", "revenue"]
-            },
-
-            'creative_filming_techniques': {
-                title: "Creative Filming with Prisms and Glass Effects",
-                summary: "Practical techniques for achieving unique visual effects using prisms, glass, and objects in front of camera lens. Alternatives to expensive equipment for creating stylized, elegant looks in documentaries and reenactments.",
-                seminars: [
-                    {
-                        title: "June 19 Seminar - Visual Techniques",
-                        timestamps: [
-                            { time: "28:40", url: "https://fathom.video/share/AYZsWmGsUuy1osoFzhaVjQXyVVPyyTey?timestamp=1720", label: "Glass effects introduction" },
-                            { time: "29:26", url: "https://fathom.video/share/AYZsWmGsUuy1osoFzhaVjQXyVVPyyTey?timestamp=1786", label: "Gobo effects explanation" },
-                            { time: "33:18", url: "https://fathom.video/share/AYZsWmGsUuy1osoFzhaVjQXyVVPyyTey?timestamp=2002", label: "Prism examples demo" },
-                            { time: "47:42", url: "https://fathom.video/share/AYZsWmGsUuy1osoFzhaVjQXyVVPyyTey?timestamp=2837", label: "Green screen prism test" }
-                        ],
-                        searchTerms: "prisms, glass effects, creative filming, visual techniques, gobos, lens effects, reenactments"
-                    }
-                ],
-                keywords: ["prisms", "glass effects", "creative filming", "visual techniques", "gobos", "lens effects", "susannah reenactments"]
-            },
-
-            'panikos_hope_beyond_fear': {
-                title: "Panikos' Hope Beyond Fear Documentary Series",
-                summary: "Documentary series exploring four female marches worldwide: Argentine grandmothers, Iran women's rights, Cyprus reunification, and Rwanda's female government. Seeking female director to strengthen pitch and bring authentic perspective to women's stories.",
-                seminars: [
-                    {
-                        title: "June 19 Seminar - Project Overview",
-                        timestamps: [
-                            { time: "50:37", url: "https://fathom.video/share/AYZsWmGsUuy1osoFzhaVjQXyVVPyyTey?timestamp=3037", label: "Series concept overview" },
-                            { time: "53:27", url: "https://fathom.video/share/AYZsWmGsUuy1osoFzhaVjQXyVVPyyTey?timestamp=3207", label: "Female director necessity" },
-                            { time: "54:48", url: "https://fathom.video/share/AYZsWmGsUuy1osoFzhaVjQXyVVPyyTey?timestamp=3277", label: "Director brief discussion" },
-                            { time: "58:17", url: "https://fathom.video/share/AYZsWmGsUuy1osoFzhaVjQXyVVPyyTey?timestamp=3497", label: "Industry networking challenges" }
-                        ],
-                        searchTerms: "Hope Beyond Fear, Panikos, female marches, Argentina, Iran, Cyprus, Rwanda, female director"
-                    }
-                ],
-                keywords: ["panikos", "hope beyond fear", "female marches", "argentina", "iran", "cyprus", "rwanda", "female director", "activism"]
-            },
-
-            'rejean_jet_boats': {
-                title: "Rejean's Jet Boat Racing Documentary",
-                summary: "Team Rambo's spectacular failures at jet boat racing create perfect documentary material. Students unprepared for racing despite building boat. Community support contrasts with team's lack of preparation and leadership challenges.",
-                seminars: [
-                    {
-                        title: "June 26 Seminar - Project Update",
-                        timestamps: [
-                            { time: "0:10", url: "https://fathom.video/share/q3r5Kg5GN9zkjMGF5LxjLcxg6gGVQEHp?timestamp=10", label: "Team disaster overview" },
-                            { time: "1:49", url: "https://fathom.video/share/q3r5Kg5GN9zkjMGF5LxjLcxg6gGVQEHp?timestamp=109", label: "Driver rule violation" },
-                            { time: "21:11", url: "https://fathom.video/share/q3r5Kg5GN9zkjMGF5LxjLcxg6gGVQEHp?timestamp=1271", label: "Community support" },
-                            { time: "23:36", url: "https://fathom.video/share/q3r5Kg5GN9zkjMGF5LxjLcxg6gGVQEHp?timestamp=1416", label: "Character development" }
-                        ],
-                        searchTerms: "jet boat racing, Rejean, Team Rambo, failure, community support, leadership, unprepared students"
-                    }
-                ],
-                keywords: ["rejean", "jet boat", "racing", "team rambo", "felix", "failure", "community", "leadership"]
-            },
-
-            'sean_vancouver_rave': {
-                title: "Sean's Vancouver Rave Culture Documentary",
-                summary: "Documentary about Vancouver's unique rave scene development. Needs clearer connections between sequences and stronger authorial voice. Focus on what made Vancouver special compared to LA and other cities.",
-                seminars: [
-                    {
-                        title: "June 26 Seminar - Structure Discussion",
-                        timestamps: [
-                            { time: "31:59", url: "https://fathom.video/share/q3r5Kg5GN9zkjMGF5LxjLcxg6gGVQEHp?timestamp=1919", label: "Sequence connection issues" },
-                            { time: "34:08", url: "https://fathom.video/share/q3r5Kg5GN9zkjMGF5LxjLcxg6gGVQEHp?timestamp=2048", label: "Sequence tagging advice" },
-                            { time: "43:06", url: "https://fathom.video/share/q3r5Kg5GN9zkjMGF5LxjLcxg6gGVQEHp?timestamp=2586", label: "Vancouver uniqueness" },
-                            { time: "57:00", url: "https://fathom.video/share/q3r5Kg5GN9zkjMGF5LxjLcxg6gGVQEHp?timestamp=3420", label: "Authorial voice importance" }
-                        ],
-                        searchTerms: "Vancouver rave culture, Sean, sequence connections, authorial voice, storytelling structure"
-                    }
-                ],
-                keywords: ["sean", "vancouver", "rave culture", "sequence connections", "authorial voice", "storytelling"]
-            },
-
-            'susannah_green_burial': {
-                title: "Susannah's Green Burial Documentary",
-                summary: "Following Sabrina's death and her friends' commitment to natural death care, then Megan's failed attempt to create a green cemetery. Explores the healing power of community death care and the challenges of systemic change.",
-                seminars: [
-                    {
-                        title: "July 11 Seminar - Project Deep Dive",
-                        timestamps: [
-                            { time: "27:07", url: "https://fathom.video/share/fwbBeCTZ8yFZA8AEHhoDNSZexn6s3ajd?timestamp=1632", label: "Project review begins" },
-                            { time: "40:20", url: "https://fathom.video/share/fwbBeCTZ8yFZA8AEHhoDNSZexn6s3ajd?timestamp=2409", label: "Netflix comparison" },
-                            { time: "50:22", url: "https://fathom.video/share/fwbBeCTZ8yFZA8AEHhoDNSZexn6s3ajd?timestamp=3022", label: "Death doula interview" },
-                            { time: "59:12", url: "https://fathom.video/share/fwbBeCTZ8yFZA8AEHhoDNSZexn6s3ajd?timestamp=3555", label: "Reenactment discussion" },
-                            { time: "1:35:10", url: "https://fathom.video/share/fwbBeCTZ8yFZA8AEHhoDNSZexn6s3ajd?timestamp=5710", label: "Systemic change challenges" }
-                        ],
-                        searchTerms: "green burial, death care, Susannah, Megan, Sabrina, reenactments, systemic change, community care"
-                    }
-                ],
-                keywords: ["susannah", "green burial", "death care", "megan", "sabrina", "reenactments", "community", "systemic change"]
-            },
-
-            'rik_mamas_pride': {
-                title: "Rik's Mama's Pride Documentary",
-                summary: "Rik is documenting Mama's Pride, a supremely talented 1970s Southern rock band from St. Louis that had three major near-misses at stardom. Key story: Lynyrd Skynyrd plane crash changed everything, but maybe saved their lives.",
-                seminars: [
-                    {
-                        title: "July 24 Seminar - Project Introduction",
-                        timestamps: [
-                            { time: "1:20", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=80", label: "Project intro" },
-                            { time: "10:38", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=638", label: "Band's story" },
-                            { time: "14:12", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=852", label: "Plane crash details" }
-                        ],
-                        searchTerms: "Mama's Pride, Southern rock, plane crash, Leonard Skinner"
-                    }
-                ],
-                keywords: ["rik", "rick", "mama's pride", "mamas pride", "southern rock", "music documentary", "band"]
-            },
-
-            'mamas_pride_themes': {
-                title: "Mama's Pride - Theme Development",
-                summary: "Rick explores themes of unrealized potential, talent vs. recognition, and the 'Rolling Stones ending' - sometimes not getting what you want leads to what you need.",
-                seminars: [
-                    {
-                        title: "July 24 Seminar - Theme Discussion", 
-                        timestamps: [
-                            { time: "58:49", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=3529", label: "Rick's values" },
-                            { time: "1:02:54", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=3774", label: "Universal appeal" },
-                            { time: "1:16:34", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=4594", label: "Rolling Stones theme" }
-                        ],
-                        searchTerms: "unrealized potential, humility, talent recognition, Rolling Stones"
-                    }
-                ],
-                keywords: ["themes", "unrealized potential", "talent", "recognition", "rolling stones ending", "humility"]
-            },
-
-            'matt_catholic': {
-                title: "Matt's Catholic Persecution Documentary",
-                summary: "Matt's historical documentary about English attempts to suppress Catholicism in Ireland by attacking priests. Deep personal connection - visited location as child with his sister.",
-                seminars: [
-                    {
-                        title: "July 24 Seminar - Matt's Project",
-                        timestamps: [
-                            { time: "46:51", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=2811", label: "Personal meaning" },
-                            { time: "50:23", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=3023", label: "Modern connections" },
-                            { time: "51:44", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=3104", label: "Rathlin Island priest" }
-                        ],
-                        searchTerms: "Catholic persecution, Ireland, English crown, priests"
-                    }
-                ],
-                keywords: ["matt", "catholic", "ireland", "persecution", "priests", "historical"]
-            },
-
-            'documentary_paradox': {
-                title: "The Documentary Paradox",
-                summary: "How to make films both dramatic and truthful. Solution: understand the four story types - triumph, tragedy, personal tragedy, and 'Rolling Stones' ending. All make good stories.",
-                seminars: [
-                    {
-                        title: "July 24 Seminar - Core Teaching",
-                        timestamps: [
-                            { time: "7:05", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=425", label: "Paradox explained" },
-                            { time: "9:40", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=580", label: "Four story types" },
-                            { time: "15:00", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=900", label: "Truth vs manipulation" }
-                        ],
-                        searchTerms: "documentary paradox, dramatic truthful, four story types"
-                    }
-                ],
-                keywords: ["documentary paradox", "dramatic", "truthful", "four story types", "triumph", "tragedy"]
-            },
-
-            'four_story_types': {
-                title: "The Four Types of Story Endings",
-                summary: "Triumph (get what you want), Tragedy (don't get it), Personal Tragedy (get what you want but not what you need), Rolling Stones (don't get what you want but get what you need).",
-                seminars: [
-                    {
-                        title: "July 24 Seminar - Story Types",
-                        timestamps: [
-                            { time: "7:05", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=425", label: "Four types defined" },
-                            { time: "12:43", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=763", label: "Rolling Stones example" }
-                        ],
-                        searchTerms: "four story types, triumph, tragedy, Rolling Stones ending"
-                    }
-                ],
-                keywords: ["four story types", "triumph", "tragedy", "rolling stones", "story endings", "narrative types"]
-            },
-
-            'theme_development': {
-                title: "Finding Your Documentary Theme",
-                summary: "Theme comes from what the story means to YOU personally. Identify your core value, find its opposite, show both sides honestly. This gives you authority in interviews.",
-                seminars: [
-                    {
-                        title: "July 24 Seminar - Theme Process",
-                        timestamps: [
-                            { time: "24:48", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=1488", label: "Personal meaning" },
-                            { time: "33:00", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=1980", label: "Value pairs" },
-                            { time: "1:17:47", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=4667", label: "Interview authority" }
-                        ],
-                        searchTerms: "theme development, personal meaning, values, interview authority"
-                    }
-                ],
-                keywords: ["theme", "meaning", "values", "personal", "authority", "interviews"]
-            },
-
-            'storytelling_vs_weaving': {
-                title: "Storytelling vs Story Weaving",
-                summary: "Storytelling = WHY the story matters (meaning, theme). Story weaving = HOW to make it engaging (suspense, structure). Do storytelling first, then weaving becomes clearer.",
-                seminars: [
-                    {
-                        title: "July 24 Seminar - Key Distinction",
-                        timestamps: [
-                            { time: "21:26", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=1286", label: "Distinction explained" },
-                            { time: "22:16", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=1336", label: "Storytelling vs weaving" }
-                        ],
-                        searchTerms: "storytelling story weaving, meaning engagement, structure"
-                    }
-                ],
-                keywords: ["storytelling", "story weaving", "meaning", "engagement", "structure", "suspense"]
-            },
-
-            'treatment_process': {
-                title: "Documentary Treatment Writing Process",
-                summary: "Write 3-4 pages of your story, find the dramatic question, rewrite with intriguing opening. Multiple drafts essential - only when it's out of your head can you see what you have.",
-                seminars: [
-                    {
-                        title: "July 24 Seminar - Development Process",
-                        timestamps: [
-                            { time: "17:48", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=1068", label: "3-4 page process" },
-                            { time: "18:30", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=1110", label: "Dramatic question" },
-                            { time: "24:44", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=1484", label: "Multiple drafts" }
-                        ],
-                        searchTerms: "treatment writing, dramatic question, multiple drafts"
-                    }
-                ],
-                keywords: ["treatment", "writing", "drafts", "dramatic question", "3-4 pages", "development"]
-            },
-
-            'organization_systems': {
-                title: "Documentary Project Organization",
-                summary: "Set up external system (like Scrivener) to capture all ideas, research, drafts. Documentary makers have lots of ideas - you must be able to find and remember them.",
-                seminars: [
-                    {
-                        title: "July 24 Seminar - Organization",
-                        timestamps: [
-                            { time: "1:04:35", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=3875", label: "Scrivener system" },
-                            { time: "1:05:40", url: "https://fathom.video/share/MJ2HQT3E2qDNha54QQEK_bnCXxzqqMx9?timestamp=3940", label: "External brain" }
-                        ],
-                        searchTerms: "organization, Scrivener, external brain, project management"
-                    }
-                ],
-                keywords: ["organization", "scrivener", "system", "ideas", "research", "external brain"]
-            },
-
-            'thematic_arguments': {
-                title: "Thematic Arguments & Cultural Identity",
-                summary: "How thematic arguments shape documentaries through personal connection. Exploring opposing values (cultural identity vs. assimilation, organized religion vs. personal faith) to create authentic authorial voice without being preachy.",
-                seminars: [
-                    {
-                        title: "July 17 Seminar - Thematic Depth",
-                        timestamps: [
-                            { time: "52:00", url: "https://fathom.video/share/DjsSFmD7XuGXsWyZXscPLhHzr391Cnky?timestamp=3120.9999", label: "Cultural identity" },
-                            { time: "53:00", url: "https://fathom.video/share/DjsSFmD7XuGXsWyZXscPLhHzr391Cnky?timestamp=3182.9999", label: "Personal connection" },
-                            { time: "1:55:00", url: "https://fathom.video/share/DjsSFmD7XuGXsWyZXscPLhHzr391Cnky?timestamp=6950.9999", label: "Daniel Rohr connection" },
-                            { time: "2:00:40", url: "https://fathom.video/share/DjsSFmD7XuGXsWyZXscPLhHzr391Cnky?timestamp=7240.9999", label: "Liam masterclass" }
-                        ],
-                        searchTerms: "thematic argument, cultural identity, assimilation, personal faith, opposing values, authorship"
-                    }
-                ],
-                keywords: ["thematic argument", "cultural identity", "assimilation", "faith", "organized religion", "personal belief", "authorship", "opposing values"]
-            },
-
-            'marta_animation_introduction': {
-                title: "Marta's Animation Project Introduction",
-                summary: "New DocFix member Marta Madrid joins as animation specialist. Discussion of animation's unique requirements for story planning and organization compared to traditional documentary filming. Animation as proof of concept for story development methodology.",
-                seminars: [
-                    {
-                        title: "July 31 Seminar - New Member Introduction",
-                        timestamps: [
-                            { time: "0:00", url: "#", label: "Marta introduction" },
-                            { time: "10:00", url: "#", label: "Animation planning discussion" },
-                            { time: "13:00", url: "#", label: "No shame in rough drafts" },
-                            { time: "14:00", url: "#", label: "Pixar story development" }
-                        ],
-                        searchTerms: "animation, Marta Madrid, story planning, Pixar, organization, sketching, pre-planning"
-                    }
-                ],
-                keywords: ["marta", "animation", "pixar", "story planning", "organization", "sketching", "pre-planning"]
-            },
-
-            'community_updates_july31': {
-                title: "DocFix Community Platform Updates",
-                summary: "Major community platform improvements: simplified layout with welcome section, persistent Zoom link for weekly seminars, Fathom AI integration for seminar analysis, searchable seminar index, consolidated pitch deck resources.",
-                seminars: [
-                    {
-                        title: "July 31 Seminar - Platform Tour",
-                        timestamps: [
-                            { time: "0:48", url: "#", label: "Community tour begins" },
-                            { time: "4:00", url: "#", label: "Persistent Zoom link" },
-                            { time: "4:35", url: "#", label: "Fathom AI integration" },
-                            { time: "7:30", url: "#", label: "Searchable index demo" }
-                        ],
-                        searchTerms: "community updates, Zoom link, Fathom AI, seminar index, platform improvements"
-                    }
-                ],
-                keywords: ["community", "platform", "zoom", "fathom ai", "seminar index", "updates"]
-            },
-
-            'story_purpose_clarity': {
-                title: "Defining Story Purpose Before Technical Details",
-                summary: "Essential lesson: clearly define what your story is about and why you're telling it before getting caught up in technical aspects. Story purpose guides all subsequent decisions about research, filming, and editing.",
-                seminars: [
-                    {
-                        title: "July 31 Seminar - Story Foundation",
-                        timestamps: [
-                            { time: "22:00", url: "#", label: "Story purpose importance" },
-                            { time: "28:00", url: "#", label: "Single story focus" },
-                            { time: "29:00", url: "#", label: "Clarity before creativity" }
-                        ],
-                        searchTerms: "story purpose, motivation, clarity, foundation, why tell story, narrative focus"
-                    }
-                ],
-                keywords: ["story purpose", "motivation", "clarity", "foundation", "narrative focus", "why tell story"]
-            },
-
-            'teddy_feature_completion': {
-                title: "Teddy's Feature Documentary Completion",
-                summary: "Teddy completes picture lock on his feature documentary after intensive 19-week edit. Key lessons: staying true to original story intention, avoiding mission creep, the difference between what the film is about vs. personal experience of making it.",
-                seminars: [
-                    {
-                        title: "July 31 Seminar - Project Completion",
-                        timestamps: [
-                            { time: "16:00", url: "#", label: "Picture lock announcement" },
-                            { time: "17:00", url: "#", label: "19-week edit journey" },
-                            { time: "23:00", url: "#", label: "Staying true to story" },
-                            { time: "26:00", url: "#", label: "Single story focus lesson" }
-                        ],
-                        searchTerms: "Teddy, feature completion, picture lock, brain science, story focus, edit process"
-                    }
-                ],
-                keywords: ["teddy", "feature", "picture lock", "brain science", "edit process", "completion"]
-            },
-
-            'character_analysis_felix': {
-                title: "Character Analysis - Rejean's Felix",
-                summary: "Deep dive into main character analysis for Rejean's jet boat documentary. Felix as organized leader dealing with disorganized teammates. Importance of psychoanalyzing main character to find narrative throughline separate from chronological events.",
-                seminars: [
-                    {
-                        title: "July 31 Seminar - Character Work",
-                        timestamps: [
-                            { time: "1:04:00", url: "#", label: "Felix character discussion" },
-                            { time: "1:05:00", url: "#", label: "Leadership challenges" },
-                            { time: "1:06:30", url: "#", label: "Character analysis assignment" },
-                            { time: "1:07:00", url: "#", label: "Main character throughline" }
-                        ],
-                        searchTerms: "character analysis, Felix, main character, leadership, psychoanalysis, throughline"
-                    }
-                ],
-                keywords: ["character analysis", "felix", "main character", "leadership", "rejean", "ramboat"]
-            },
-
-            'static_vs_kinetic_elements': {
-                title: "Static vs Kinetic Story Elements",
-                summary: "Advanced concept: Static elements (genre, theme) remain consistent throughout film, while kinetic elements (narrative progression, character arcs) create movement and energy. Acts provide structure for progressing through genre concepts.",
-                seminars: [
-                    {
-                        title: "July 31 Seminar - Story Structure",
-                        timestamps: [
-                            { time: "33:00", url: "#", label: "Static vs kinetic explained" },
-                            { time: "35:00", url: "#", label: "Acts and progression" },
-                            { time: "37:00", url: "#", label: "Bank heist example" },
-                            { time: "40:00", url: "#", label: "Four room metaphor" }
-                        ],
-                        searchTerms: "static kinetic elements, genre, acts, story structure, progression, throughline"
-                    }
-                ],
-                keywords: ["static", "kinetic", "genre", "acts", "story structure", "progression", "throughline"]
-            },
-
-            'nadia_big_band_project': {
-                title: "Nadia's Big Band Leader Documentary",
-                summary: "Biographical documentary about 1930s big band leader exploring themes of unknowability and documentary truth. Using visual found objects and questioning traditional biographical documentary assumptions about 'knowing' someone.",
-                seminars: [
-                    {
-                        title: "July 31 Seminar - Project Development",
-                        timestamps: [
-                            { time: "1:13:00", url: "#", label: "Project introduction" },
-                            { time: "1:14:00", url: "#", label: "From Moscow reference" },
-                            { time: "1:16:00", url: "#", label: "Found objects approach" },
-                            { time: "1:17:00", url: "#", label: "Story outline assignment" }
-                        ],
-                        searchTerms: "Nadia, big band leader, 1930s, biographical uncertainty, found objects, From Moscow Pietushki"
-                    }
-                ],
-                keywords: ["nadia", "big band", "1930s", "biographical", "found objects", "uncertainty", "documentary truth"]
-            },
-
-            'rajesh_360_arctic_footage': {
-                title: "Rajesh's 360° Arctic Wildlife Documentation",
-                summary: "Stunning 360-degree Arctic wildlife footage featuring polar bears and walruses. Demonstrates advanced technical documentary work and immersive viewing experience, especially in VR format.",
-                seminars: [
-                    {
-                        title: "July 31 Seminar - Technical Showcase",
-                        timestamps: [
-                            { time: "54:00", url: "#", label: "360° footage introduction" },
-                            { time: "55:00", url: "#", label: "Arctic walrus sequence" },
-                            { time: "56:00", url: "#", label: "VR experience discussion" },
-                            { time: "57:00", url: "#", label: "Polar bear footage" }
-                        ],
-                        searchTerms: "Rajesh, 360 degree, Arctic, wildlife, polar bear, walrus, VR, natural history"
-                    }
-                ],
-                keywords: ["rajesh", "360", "arctic", "wildlife", "polar bear", "walrus", "vr", "natural history"]
-            },
-
-            'fathom_ai_tools': {
-                title: "Fathom AI Tools for Documentary Making",
-                summary: "Using Fathom for seminar note-taking, content analysis, and searchable databases. Demonstrations of AI tools for footage review, language processing, and story development while maintaining creative control.",
-                seminars: [
-                    {
-                        title: "June 19 & 26 Seminars - AI Discussion",
-                        timestamps: [
-                            { time: "40:26", url: "https://fathom.video/share/AYZsWmGsUuy1osoFzhaVjQXyVVPyyTey?timestamp=2429", label: "Fathom introduction" },
-                            { time: "7:21", url: "https://fathom.video/share/q3r5Kg5GN9zkjMGF5LxjLcxg6gGVQEHp?timestamp=441", label: "Live Fathom demo" },
-                            { time: "10:36", url: "https://fathom.video/share/q3r5Kg5GN9zkjMGF5LxjLcxg6gGVQEHp?timestamp=636", label: "AI questioning power" },
-                            { time: "12:55", url: "https://fathom.video/share/q3r5Kg5GN9zkjMGF5LxjLcxg6gGVQEHp?timestamp=775", label: "Software recommendations" }
-                        ],
-                        searchTerms: "Fathom AI, documentary tools, footage analysis, transcription, searchable content"
-                    }
-                ],
-                keywords: ["fathom", "ai tools", "transcription", "footage analysis", "searchable", "content analysis"]
-            }
-        };
-
-        function performSearch() {
-            const query = document.querySelector('.search-input').value.trim().toLowerCase();
-            if (!query) return;
-
-            const results = findMatches(query);
-            displayResults(query, results);
+        
+        // Search in badge
+        if (seminar.badge.toLowerCase().includes(query)) {
+            relevanceScore += 2;
         }
-
-        function searchQuestion(question) {
-            // Switch to search tab and perform search
-            switchTab('search');
-            setTimeout(() => {
-                document.querySelector('.search-input').value = question;
-                performSearch();
-            }, 100);
-        }
-
-        function findMatches(query) {
-            const results = [];
-            const queryWords = query.split(/\s+/).filter(word => word.length > 2);
-
-            Object.entries(SEMINAR_INDEX).forEach(([key, data]) => {
-                let score = 0;
-                
-                // Check keywords for exact matches
-                data.keywords.forEach(keyword => {
-                    if (query.includes(keyword.toLowerCase())) {
-                        score += keyword.length > 5 ? 10 : 5; // Longer keywords get higher score
-                    }
-                });
-
-                // Check title and summary
-                const titleWords = data.title.toLowerCase();
-                const summaryWords = data.summary.toLowerCase();
-                
-                queryWords.forEach(word => {
-                    if (titleWords.includes(word)) score += 3;
-                    if (summaryWords.includes(word)) score += 2;
-                });
-
-                // Check search terms in seminars
-                data.seminars.forEach(seminar => {
-                    if (seminar.searchTerms.toLowerCase().includes(query)) score += 5;
-                    queryWords.forEach(word => {
-                        if (seminar.searchTerms.toLowerCase().includes(word)) score += 1;
-                    });
-                });
-
-                if (score > 0) {
-                    results.push({ ...data, score, key });
-                }
+        
+        if (relevanceScore > 0) {
+            results.push({
+                ...seminar,
+                relevanceScore,
+                matchedTopics,
+                matchedContent
             });
-
-            return results.sort((a, b) => b.score - a.score);
         }
+    });
+    
+    return results.sort((a, b) => b.relevanceScore - a.relevanceScore);
+}
 
-        function displayResults(query, results) {
-            const resultsSection = document.getElementById('resultsSection');
-            const resultsCount = document.getElementById('resultsCount');
-            const resultsContainer = document.getElementById('resultsContainer');
-
-            if (results.length === 0) {
-                resultsContainer.innerHTML = `
-                    <div class="no-results">
-                        <h3>No matches found</h3>
-                        <p>Try different keywords or browse the weekly seminars tab.</p>
-                    </div>
-                `;
-                resultsCount.textContent = `No results for "${query}"`;
-            } else {
-                resultsCount.textContent = `Found ${results.length} result${results.length > 1 ? 's' : ''} for "${query}"`;
-                
-                resultsContainer.innerHTML = results.map(result => `
-                    <div class="index-card">
-                        <div class="index-title">${result.title}</div>
-                        <div class="index-summary">${result.summary}</div>
-                        
-                        <div class="index-actions">
-                            ${result.seminars.map(seminar => `
-                                <div class="seminar-link">
-                                    <div class="seminar-title">${seminar.title}</div>
-                                    <div class="timestamp-links">
-                                        ${seminar.timestamps.map(ts => 
-                                            `<a href="${ts.url}" target="_blank" class="timestamp-link">${ts.time} - ${ts.label}</a>`
-                                        ).join('')}
-                                    </div>
-                                    <div class="search-terms">
-                                        <strong>Fathom search terms:</strong> ${seminar.searchTerms}
-                                    </div>
-                                </div>
-                            `).join('')}
+function displaySearchResults(results, query) {
+    const resultsContainer = document.getElementById('searchResultsContainer');
+    const resultsCount = document.getElementById('resultsCount');
+    const resultsSection = document.getElementById('searchResults');
+    
+    if (results.length === 0) {
+        resultsContainer.innerHTML = `
+            <div class="no-results">
+                <h3>No results found for "${query}"</h3>
+                <p>Try searching for broader terms or check the example searches above.</p>
+            </div>
+        `;
+    } else {
+        resultsContainer.innerHTML = results.map(result => `
+            <div class="index-card">
+                <div class="index-title">${result.date} - ${result.badge}</div>
+                <div class="index-summary">
+                    ${result.matchedContent.length > 0 ? 
+                        result.matchedContent[0] + '...' : 
+                        'Found in: ' + result.matchedTopics.join(', ')
+                    }
+                </div>
+                <div class="index-actions">
+                    <div class="seminar-link">
+                        <div class="seminar-title">📺 ${result.date} Seminar</div>
+                        <div class="timestamp-links">
+                            <a href="${result.fullLink}" target="_blank" class="timestamp-link">Full Seminar</a>
+                            ${result.timestamps.map(ts => 
+                                `<a href="${ts.link}" target="_blank" class="timestamp-link">${ts.name}</a>`
+                            ).join('')}
+                        </div>
+                        <div class="search-terms">
+                            <strong>Topics:</strong> ${result.topics.join(', ')}
                         </div>
                     </div>
-                `).join('');
-            }
+                </div>
+            </div>
+        `).join('');
+    }
+    
+    resultsCount.textContent = `${results.length} result${results.length !== 1 ? 's' : ''} found for "${query}"`;
+    resultsSection.style.display = 'block';
+}
 
-            resultsSection.style.display = 'block';
-            
-            // Smooth scroll to results
-            setTimeout(() => {
-                resultsSection.scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }, 100);
-        }
+function clearSearch() {
+    document.getElementById('searchInput').value = '';
+    document.getElementById('searchResults').style.display = 'none';
+}
+</script>
 
-        function clearResults() {
-            const resultsSection = document.getElementById('resultsSection');
-            const searchInput = document.querySelector('.search-input');
-            
-            resultsSection.style.display = 'none';
-            searchInput.value = '';
-        }
-
-        // Setup event listeners
-        document.addEventListener('DOMContentLoaded', () => {
-            const searchInput = document.querySelector('.search-input');
-            searchInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    performSearch();
-                }
-            });
-        });
-    </script>
 </body>
 </html>
